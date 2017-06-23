@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: eu.jgen.notes.walkency.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JGen Notes
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.junit,
+ eu.jgen.notes.walkency;bundle-version="1.0.0",
+ eu.jgen.notes.automation;bundle-version="1.0.0",
+ com.ca.gen.jmmi;bundle-version="8.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: eu.jgen.notes.automation.wrapper,
+ eu.jgen.notes.walkency.parts
