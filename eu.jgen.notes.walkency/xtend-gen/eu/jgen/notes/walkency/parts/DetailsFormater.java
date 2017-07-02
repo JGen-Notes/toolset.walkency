@@ -24,60 +24,49 @@ package eu.jgen.notes.walkency.parts;
 
 import com.ca.gen.jmmi.schema.AscTypeCode;
 import com.ca.gen.jmmi.schema.AscTypeHelper;
-import com.ca.gen.jmmi.schema.DivTypeCode;
 import com.ca.gen.jmmi.schema.ObjTypeCode;
 import com.ca.gen.jmmi.schema.PrpTypeCode;
 import com.ca.gen.jmmi.schema.PrpTypeHelper;
 import com.ca.gen.jmmi.util.PrpFormat;
-import com.google.common.base.Objects;
 
 @SuppressWarnings("all")
 public class DetailsFormater {
   public static String formatProperty(final ObjTypeCode objTypeCode, final PrpTypeCode prpTypeCode) {
     StringBuffer buffer = new StringBuffer();
     buffer.append("format=");
-    PrpFormat _format = PrpTypeHelper.getFormat(objTypeCode, prpTypeCode);
-    String _string = _format.toString();
-    buffer.append(_string);
+    buffer.append(PrpTypeHelper.getFormat(objTypeCode, prpTypeCode).toString());
     buffer.append(", default=");
-    PrpFormat _format_1 = PrpTypeHelper.getFormat(objTypeCode, prpTypeCode);
-    if (_format_1 != null) {
-      switch (_format_1) {
+    PrpFormat _format = PrpTypeHelper.getFormat(objTypeCode, prpTypeCode);
+    if (_format != null) {
+      switch (_format) {
         case ART:
-          String _defaultTxtValue = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultTxtValue);
+          buffer.append(PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode));
           break;
         case CHAR:
           buffer.append("\'");
-          char _defaultChrValue = PrpTypeHelper.getDefaultChrValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultChrValue);
+          buffer.append(PrpTypeHelper.getDefaultChrValue(objTypeCode, prpTypeCode));
           buffer.append("\'");
           break;
         case INT:
-          long _defaultIntValue = PrpTypeHelper.getDefaultIntValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultIntValue);
+          buffer.append(PrpTypeHelper.getDefaultIntValue(objTypeCode, prpTypeCode));
           break;
         case LOADNAME:
-          String _defaultTxtValue_1 = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultTxtValue_1);
+          buffer.append(PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode));
           break;
         case NAME:
-          String _defaultTxtValue_2 = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultTxtValue_2);
+          buffer.append(PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode));
           break;
         case SINT:
-          long _defaultIntValue_1 = PrpTypeHelper.getDefaultIntValue(objTypeCode, prpTypeCode);
-          buffer.append(_defaultIntValue_1);
+          buffer.append(PrpTypeHelper.getDefaultIntValue(objTypeCode, prpTypeCode));
           break;
         case TEXT:
-          String _defaultTxtValue_3 = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
-          boolean _equals = Objects.equal(_defaultTxtValue_3, null);
-          if (_equals) {
+          String _defaultTxtValue = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
+          boolean _tripleEquals = (_defaultTxtValue == null);
+          if (_tripleEquals) {
             buffer.append("NULL");
           } else {
             buffer.append("\"");
-            String _defaultTxtValue_4 = PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode);
-            buffer.append(_defaultTxtValue_4);
+            buffer.append(PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode));
             buffer.append("\"");
           }
           break;
@@ -87,8 +76,7 @@ public class DetailsFormater {
     } else {
     }
     buffer.append(", length=");
-    short _length = PrpTypeHelper.getLength(objTypeCode, prpTypeCode);
-    buffer.append(_length);
+    buffer.append(PrpTypeHelper.getLength(objTypeCode, prpTypeCode));
     return buffer.toString();
   }
   
@@ -101,8 +89,7 @@ public class DetailsFormater {
       buffer.append("1:1");
     }
     buffer.append(", target=");
-    DivTypeCode _targetDivision = AscTypeHelper.getTargetDivision(objTypeCode, ascTypeCode);
-    buffer.append(_targetDivision);
+    buffer.append(AscTypeHelper.getTargetDivision(objTypeCode, ascTypeCode));
     buffer.append(", opt=");
     boolean _isIgnorable = AscTypeHelper.isIgnorable(objTypeCode, ascTypeCode);
     if (_isIgnorable) {
@@ -125,8 +112,7 @@ public class DetailsFormater {
       buffer.append("N");
     }
     buffer.append(", inverse=");
-    AscTypeCode _inverse = AscTypeHelper.getInverse(objTypeCode, ascTypeCode);
-    buffer.append(_inverse);
+    buffer.append(AscTypeHelper.getInverse(objTypeCode, ascTypeCode));
     return buffer.toString();
   }
 }

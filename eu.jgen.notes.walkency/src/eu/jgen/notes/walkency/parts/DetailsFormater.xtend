@@ -41,7 +41,7 @@ class DetailsFormater {
 			case PrpFormat.ART: {
 				buffer.append(PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode))
 			}
-			case PrpFormat.CHAR: {   
+			case PrpFormat.CHAR: {    
 				buffer.append("'")
 				buffer.append(PrpTypeHelper.getDefaultChrValue(objTypeCode, prpTypeCode))
 				buffer.append("'")
@@ -59,7 +59,7 @@ class DetailsFormater {
 				buffer.append(PrpTypeHelper.getDefaultIntValue(objTypeCode, prpTypeCode))
 			}
 			case PrpFormat.TEXT: {
-				if (PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode) == null) {
+				if (PrpTypeHelper.getDefaultTxtValue(objTypeCode, prpTypeCode) === null) {
 					buffer.append("NULL")
 				} else {
 					buffer.append("\"")
